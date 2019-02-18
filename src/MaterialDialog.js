@@ -41,6 +41,8 @@ const MaterialDialog = ({
   addPadding,
   onOk,
   onCancel,
+  onBackButtonPress,
+  onBackdropPress,
   okLabel,
   cancelLabel,
   children,
@@ -50,10 +52,10 @@ const MaterialDialog = ({
     transparent
     hardwareAccelerated
     visible={visible}
-    onRequestClose={onCancel}
+    onRequestClose={onBackButtonPress}
     supportedOrientations={['portrait', 'landscape']}
   >
-    <TouchableWithoutFeedback onPress={onCancel}>
+    <TouchableWithoutFeedback onPress={onBackdropPress}>
       <View style={styles.backgroundOverlay}>
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
           <View
